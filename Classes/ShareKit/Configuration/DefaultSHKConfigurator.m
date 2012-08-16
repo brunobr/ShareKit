@@ -59,12 +59,6 @@
  leaving that decision up to the user.
  */
 
-// Vkontakte
-// SHKVkontakteAppID is the Application ID provided by Vkontakte
-- (NSString*)vkontakteAppId {
-	return @"";
-}
-
 // Facebook - https://developers.facebook.com/apps
 // SHKFacebookAppID is the Application ID provided by Facebook
 // SHKFacebookLocalAppID is used if you need to differentiate between several iOS apps running against a single Facebook app. Useful, if you have full and lite versions of the same app,
@@ -88,15 +82,6 @@
     return [NSArray arrayWithObjects:@"publish_stream", @"offline_access", nil];
 }
 
-// Read It Later - http://readitlaterlist.com/api/signup/ 
-- (NSString*)readItLaterKey {
-	return @"";
-}
-
-// Diigo - http://www.diigo.com/api_keys/new/
-- (NSString*)diigoKey {
-  return @"";
-}
 // Twitter - http://dev.twitter.com/apps/new
 /*
  Important Twitter settings to get right:
@@ -141,29 +126,7 @@
 - (NSString*)twitterUsername {
 	return @"";
 }
-// Evernote - http://www.evernote.com/about/developer/api/
-/*	You need to set to sandbox until you get approved by evernote. If you use sandbox, you can use it with special sandbox user account only. You can create it here: https://sandbox.evernote.com/Registration.action
-    If you already have a consumer-key and secret which have been created with the old username/password authentication system
-    (created before May 2012) you have to get a new consumer-key and secret, as the old one is not accepted by the new authentication
-    system.
- // Sandbox
- #define SHKEvernoteHost    @"sandbox.evernote.com"
- 
- // Or production
- #define SHKEvernoteHost    @"www.evernote.com"
- */
 
-- (NSString*)evernoteHost {
-	return @"";
-}
-
-- (NSString*)evernoteConsumerKey {
-	return @"";
-}
-
-- (NSString*)evernoteSecret {
-	return @"";
-}
 // Flickr - http://www.flickr.com/services/apps/create/
 /*
  1 - This requires the CFNetwork.framework 
@@ -203,18 +166,6 @@
 	return @"";
 }
 
-// Readability - http://www.readability.com/publishers/api/
-- (NSString*)readabilityConsumerKey {
-	return @"";
-}
-
-- (NSString*)readabilitySecret {
-	return @"";
-}
-// To use xAuth, set to 1, Currently ONLY supports XAuth
-- (NSNumber*)readabilityUseXAuth {
-	return [NSNumber numberWithInt:1];
-}
 // Foursquare V2 - https://developer.foursquare.com
 - (NSString*)foursquareV2ClientId {
     return @"";
@@ -281,7 +232,7 @@
  These values are used to define the default favorite sharers appearing on ShareKit's action sheet.
  */
 - (NSArray*)defaultFavoriteURLSharers {
-    return [NSArray arrayWithObjects:@"SHKTwitter",@"SHKFacebook", @"SHKReadItLater", nil];
+    return [NSArray arrayWithObjects:@"SHKTwitter",@"SHKFacebook", nil];
 }
 - (NSArray*)defaultFavoriteImageSharers {
     return [NSArray arrayWithObjects:@"SHKMail",@"SHKFacebook", @"SHKCopy", nil];
@@ -290,7 +241,7 @@
     return [NSArray arrayWithObjects:@"SHKMail",@"SHKTwitter",@"SHKFacebook", nil];
 }
 - (NSArray*)defaultFavoriteFileSharers {
-    return [NSArray arrayWithObjects:@"SHKMail",@"SHKEvernote", nil];
+    return [NSArray arrayWithObjects:@"SHKMail", nil];
 }
 
 //by default, user can see last used sharer on top of the SHKActionSheet. You can switch this off here, so that user is always presented the same sharers for each SHKShareType.
