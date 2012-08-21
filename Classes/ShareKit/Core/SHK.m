@@ -38,6 +38,8 @@
 #import <MessageUI/MessageUI.h>
 #include <sys/xattr.h>
 
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
 NSString * SHKLocalizedStringFormat(NSString* key);
 NSString * const SHKHideCurrentViewFinishedNotification = @"SHKHideCurrentViewFinished";
 
@@ -805,7 +807,7 @@ NSString* SHKLocalizedString(NSString* key, ...)
 {
     const char* filePath = [[URL path] fileSystemRepresentation];
     const char* attrName = "com.apple.MobileBackup";
-    if (&NSURLIsExcludedFromBackupKey == nil) {
+    if (SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"5.0.1")) {
         // iOS 5.0.1 and lower
         u_int8_t attrValue = 1;
         int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
@@ -823,8 +825,9 @@ NSString* SHKLocalizedString(NSString* key, ...)
         }
         
         // Set the new key
-        return [URL setResourceValue:[NSNumber numberWithBool:YES] forKey:NSURLIsExcludedFromBackupKey error:nil];
+        return [URL setResourceValue:[NSNumber numberWithBool:YES] forKey:@"NSURLIsExcludedFromBackupKey" error:nil];
     }
 }
+
 
 @end
