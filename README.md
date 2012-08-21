@@ -1,18 +1,29 @@
-ShareKit 2.0
+ShareKit 2.0 - Customized
 ============
 
-In order to make it easier for new users to choose a canonical fork of ShareKit, the ShareKit community has decided to band together and take responsibility for collecting useful commits into what we're calling "ShareKit 2.0". It is now ready for you. It is the first officially stable version of ShareKit since February, with more frequent updates expected.
+Sharers:
+----------- 
 
-Highlights:
+ - Facebook
+ - Twitter
+ - Tumblr
+ - Flickr
+ - Foursquare
+ - LinkedIn
+ - Google reader
 
-* new sharers (FourSquare, LinkedIn, VKontakte)
-* Twitter on iOS 5 uses system dialogue
-* many other improvements, mostly stability and memory issues
-* optimized for adding as git submodule to your project for easy updating
+Instalação:
+------------
 
-You can follow the initial planning at https://github.com/ideashower/ShareKit/issues/283.
-
-As ShareKit is now community driven, you are welcome to help, to judge new features, review pull requests etc.. There are many ways you can help, see [FAQ](https://github.com/ShareKit/ShareKit/wiki/FAQ)
+ 1. Clonar projeto
+ 2. Ir na pasta, pelo terminal, e executar: rm -r .git
+ 3. Copiar a pasta ShareKit para a pasta do Projeto em questão
+ 4. "Arrastar" o projeto do ShareKit para o seu
+ 5. Incluir no User Header Search Paths: $(SRCROOT)/ShareKit e marcar a check de recorrencia
+ 6. Incluir a flag -all_load no linker flags
+ 7. Adicionar  ao Target Dependencies, Static Library (ShareKit) e Resource Bundle (ShareKit)
+ 8. Adicionar ao Link Binary With Libraries, libShareKit.a
+ 9. Arrastar o ShareKit.bundle da pasta Products no projeto ShareKit para a parte Copy Bundle Resources
 
 Documentation
 -------------
